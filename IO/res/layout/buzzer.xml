@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <Button android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="蜂鸣器输出申请"
+        android:id="@+id/buzzer_pwm_out"/>
+    
+     <Button android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="默认设置100频率"
+        android:id="@+id/buzzer_pwm_sped"/>
+     
+      <Button android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="默认设置50占空比"
+        android:id="@+id/buzzer_pwm_duty"/>
+      
+      
+       <Button android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="开启"
+        android:id="@+id/buzzer_pwm_run"/>
+       
+       <Button android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="关闭"
+        android:id="@+id/buzzer_pwm_stop"/>
+</LinearLayout>

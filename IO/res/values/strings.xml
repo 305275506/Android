@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">接口测试工具</string>
+    
+    
+    <string name="MAIN_UART">串口测试</string>
+    <string name="MAIN_RS485">RS485测试</string>
+    <string name="MAIN_GPIO">GPIO测试</string>
+    <string name="MAIN_AD">AD/DA测试</string>
+    <string name="MAIN_BLU">蓝牙测试</string>
+    <string name="MAIN_ZIG">Zigbee测试</string>
+    <string name="MAIN_BUZ">蜂鸣器测试</string>
+    <string name="MAIN_TEMP">温度器测试</string>
+    <string name="MAIN_GPRS">GPRS测试</string>
+    <string name="MAIN_PWM">PWM测试</string>
+
+</resources>
