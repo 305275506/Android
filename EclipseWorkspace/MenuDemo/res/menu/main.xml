@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+   <!-- 添加菜单项 
+      showAsAction：是否已ActionBar的形式展示，假如版本支持，则以ActionBar展示，假如版本不支持，则过滤掉该属性
+        - never ：不显示，只在溢出栏中体现
+        - ifRoom ：假如有空间则显示
+        - always ：总是显示
+        - withText：与文本一起显示 
+        - collapseActionView：折叠显示
+   -->
+    <item
+        android:id="@+id/menu_add_id"
+        android:orderInCategory="1"
+        android:showAsAction="always"
+        android:icon="@drawable/ppsgame_edit_selected"
+        android:title="@string/menu_add_title"/>
+    
+    <item android:id="@+id/menu_exit_id"
+        android:orderInCategory="2"
+        android:showAsAction="always"
+        android:icon="@drawable/exercise_option_f"
+        android:title="@string/menu_exit_title"/>
+</menu>

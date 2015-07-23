@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="menu_edit_id"></item>
+    <item type="id" name="menu_delete_id"></item>
+    <item type="id" name="menu_add_id"></item>
+    <item type="id" name="menu_exit_id"></item>
+</resources>

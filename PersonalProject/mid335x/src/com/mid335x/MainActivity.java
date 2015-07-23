@@ -9,29 +9,31 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.webkit.WebView.FindListener;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.*;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener{
 	final static long HIGH_SPEED = 500;
-	final static long MED_SPEED = 1000;
-	final static long LOW_SPEED = 1500;
-	
-	
+	final static long MED_SPEED = 900;
+	final static long LOW_SPEED = 1200;
+	int[] big_black_num = new int[10];
 	Button fanSpeedHighButton;
 	Button fanSpeedMedButton;
 	Button fanSpeedLowButton;
 	Button fanSpeedAutoButton;
-	ImageView fanImage;
+	ImageView fanImage,bigTemFir,bigTemSec;
 	GameView gameView;
+	FrameLayout f1,f2;
+	VerticalSeekBar vSeekerBar;
+	LinearLayout linearLayout1,linearLayout2;
+	
+	
 	
     private Animation	mAnimationRotate	= null;
 	
@@ -42,6 +44,10 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
+
+		
+		
+					
 		//设置横屏
 		if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
 			   setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -51,6 +57,23 @@ public class MainActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);//禁止显示标题栏
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏	
 		setContentView(R.layout.activity_main);
+		
+		//初始化数字数组
+		for(int i=0;i<10;i++) {
+			big_black_num[i] = R.drawable.big_black_0 + i;
+		}
+		bigTemFir = (ImageView)findViewById(R.id.imageView2);
+		bigTemSec = (ImageView)findViewById(R.id.imageView3);
+		
+		//设置温度拖动条
+		vSeekerBar = new VerticalSeekBar(this);
+		vSeekerBar.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.MATCH_PARENT));
+		vSeekerBar.setMax(24);
+		vSeekerBar.setProgress(12);
+		vSeekerBar.setOnSeekBarChangeListener(this);
+		linearLayout1 = (LinearLayout)findViewById(R.id.linearLayout1);
+		linearLayout1.addView(vSeekerBar);
+		
 		
 		fanSpeedHighButton = (Button)findViewById(R.id.button1);
 		fanSpeedHighButton.setOnClickListener(new FanSpeedClickListener());
@@ -64,48 +87,28 @@ public class MainActivity extends Activity {
 		fanSpeedAutoButton = (Button)findViewById(R.id.button4);
 		fanSpeedAutoButton.setOnClickListener(new FanSpeedClickListener());
 		
-		fanImage = (ImageView)findViewById(R.id.imageView1);
+//		fanImage = (ImageView)findViewById(R.id.imageView1);
 		
 		/* 装载资源 */
-		mBitQQ = ((BitmapDrawable) getResources().getDrawable(R.drawable.small_fan0)).getBitmap();
+		mBitQQ = ((BitmapDrawable) getResources().getDrawable(R.drawable.fan_small_0)).getBitmap();
 		/* 装载动画布局 */
 //		mAnimationRotate = AnimationUtils.loadAnimation(mContext,R.anim.rotate_animation);
 //		mAnimationRotate = new RotateAnimation(0.0f, 359.0f, Animation.ABSOLUTE, mBitQQ.getWidth()/2, Animation.ABSOLUTE, mBitQQ.getHeight()/2);
-		mAnimationRotate = new RotateAnimation(0.0f, 359.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+		mAnimationRotate = new RotateAnimation(0.0f, 361.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
 		mAnimationRotate.setDuration(HIGH_SPEED);
 		mAnimationRotate.setRepeatCount(Animation.INFINITE);
 		//设置匀速
 		LinearInterpolator lip = new LinearInterpolator();
 		mAnimationRotate.setInterpolator(lip);
+		
 		fanImage = (ImageView)findViewById(R.id.imageView1);
 		
 		/* 开始播放动画 */
 		fanImage.startAnimation(mAnimationRotate);
-		
-		
-//		MainActivity.this.runOnUiThread(new Runnable() {
-//			
-//			@Override
-//			public void run() {
-//				while (true) {
-//					// TODO Auto-generated method stub
-//					fanImage.setImageResource(R.drawable.fan_small_3);
-////					try {
-////						Thread.sleep(500);
-////						fanImage.setImageResource(R.drawable.fan_small_1);
-////					} catch (InterruptedException e) {
-////						// TODO Auto-generated catch block
-////						e.printStackTrace();
-////					}
-//				}
-//				
-//			}
-//		});
-		
-		
-
 	}
+	
+	
 
 //	public void fanSpeedHigh(View v) {
 //		fanSpeedHighButton = (Button)findViewById(R.id.button1);
@@ -132,7 +135,8 @@ public class MainActivity extends Activity {
 //					.getDrawable(R.drawable.fan_speed_b4_auto_on));
 //			System.out.println("R_id:"+(R.id.button1 + 1));
 //			System.out.println("get_id:"+v.getId());
-			
+			f1 = (FrameLayout)findViewById(R.id.frameLayout1);
+			f2 = (FrameLayout)findViewById(R.id.frameLayout2);
 			for(int i=0;i<4;i++) {
 				button = (Button)findViewById(R.id.button1+i);
 				if (v.getId()!=(R.id.button1 + i)) {
@@ -154,10 +158,14 @@ public class MainActivity extends Activity {
 				Toast.makeText(MainActivity.this, "Fan Speed High", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.button3:
-				mAnimationRotate.setDuration(LOW_SPEED);
+	//			mAnimationRotate.setDuration(LOW_SPEED);
+				f2.setVisibility(View.VISIBLE);
+				f1.setVisibility(View.GONE);
 				Toast.makeText(MainActivity.this, "Fan Speed High", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.button4:
+				f1.setVisibility(View.VISIBLE);
+				f2.setVisibility(View.GONE);
 				Toast.makeText(MainActivity.this, "Fan Speed High", Toast.LENGTH_SHORT).show();
 				break;
 			}
@@ -168,6 +176,50 @@ public class MainActivity extends Activity {
 //		}
 		
 	}
+
+
+	 
+	 //实现SeekBar接口方法
+@Override
+public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+	// TODO Auto-generated method stub
+	
+	
+	bigTemFir.setImageResource(big_black_num[(progress+62)/10]);
+	bigTemSec.setImageResource(big_black_num[(progress+62)%10]);
+	System.out.println("当前值"+progress);
+	
+	
+}
+
+
+
+@Override
+public void onStartTrackingTouch(SeekBar seekBar) {
+	// TODO Auto-generated method stub
+	
+}
+
+
+
+@Override
+public void onStopTrackingTouch(SeekBar seekBar) {
+	// TODO Auto-generated method stub
+	
+}
+
+public void temPlus(View v) {
+	if(vSeekerBar.getProgress()<24) {
+		vSeekerBar.setProgress(vSeekerBar.getProgress()+1);
+	}
+	
+}
+
+public void temMinus(View v) {
+	if(vSeekerBar.getProgress()>0) {
+		vSeekerBar.setProgress(vSeekerBar.getProgress()-1);
+	}
+}
 	
 }
 

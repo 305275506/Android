@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<books>
+    <book id="1">
+        <name>西游记</name>
+        <price>30</price>
+    </book>
+    <book id="2">
+        <name>水浒传</name>
+        <price>35</price>
+    </book>
+    <book id="3">
+        <name>红楼梦</name>
+        <price>40</price>
+    </book>
+    <book id="4">
+        <name>三国演义</name>
+        <price>20</price>
+    </book>
+</books>

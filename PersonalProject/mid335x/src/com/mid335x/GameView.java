@@ -31,19 +31,19 @@ public class GameView extends View
 		
 		
 		/* 装载资源 */
-		mBitQQ = ((BitmapDrawable) getResources().getDrawable(R.drawable.fan_small_1)).getBitmap();
+		mBitQQ = ((BitmapDrawable) getResources().getDrawable(R.drawable.fan_small_0)).getBitmap();
 		/* 装载动画布局 */
 //		mAnimationRotate = AnimationUtils.loadAnimation(mContext,R.anim.rotate_animation);
-		mAnimationRotate = new RotateAnimation(0.0f, 359.0f, Animation.ABSOLUTE, mBitQQ.getWidth()/2, Animation.ABSOLUTE, mBitQQ.getHeight()/2);
-		mAnimationRotate.setDuration(1000);
+		mAnimationRotate = new RotateAnimation(0.0f, 361.0f, Animation.ABSOLUTE, mBitQQ.getWidth()/2, Animation.ABSOLUTE, mBitQQ.getHeight()/2);
+		mAnimationRotate.setDuration(500);
 		mAnimationRotate.setRepeatCount(Animation.INFINITE);
 		//设置匀速
-		LinearInterpolator lip = new LinearInterpolator();
-		mAnimationRotate.setInterpolator(lip);
-		fanImage = (ImageView)findViewById(R.id.imageView1);
+		//LinearInterpolator lip = new LinearInterpolator();
+		//mAnimationRotate.setInterpolator(lip);
+//		fanImage = (ImageView)findViewById(R.id.imageView1);
 		
 		/* 开始播放动画 */
-		fanImage.startAnimation(mAnimationRotate);
+		this.startAnimation(mAnimationRotate);
 	}
 	
 	public void onDraw(Canvas canvas)

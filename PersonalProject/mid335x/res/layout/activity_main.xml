@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="@drawable/background"
     android:gravity="top"
     tools:context=".MainActivity" >
@@ -66,86 +66,188 @@
         android:layout_below="@id/relativeLayout1_1"
         android:layout_marginLeft="16dp"
         android:background="@drawable/mode_panel_bg">
-
-        <!-- 制冷 -->
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="46dp"
-            android:layout_height="45dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/mode_bg_on"
-            android:drawableTop="@drawable/mode_cool_on"
-            android:gravity="center"
-            android:text="Cool"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp" />
         
-        <!-- 加热 -->
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="46dp"
-            android:layout_height="45dp"
-            android:layout_toRightOf="@id/textView1"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/mode_bg_off"
-            android:drawableTop="@drawable/mode_heat_off"
-            android:gravity="center"
-            android:text="Heat"
-            android:textColor="@color/blue"
-            android:textSize="14sp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="10dp" />
-        
-        <!-- 自动 -->
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="46dp"
-            android:layout_height="45dp"
-            android:layout_toRightOf="@id/textView2"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/mode_bg_off"
-            android:drawableTop="@drawable/mode_auto_off"
-            android:gravity="center"
-            android:text="Auto"
-            android:textColor="@color/blue"
-            android:textSize="14sp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="10dp" />
-        
-        <!-- 干燥 -->
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="46dp"
-            android:layout_height="45dp"
-            android:layout_toRightOf="@id/textView3"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/mode_bg_off"
-            android:drawableTop="@drawable/mode_dry_off"
-            android:gravity="center"
-            android:text="Dry"
-            android:textColor="@color/blue"
-            android:textSize="14sp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="10dp" />
-        
-        <!-- 送风 -->
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="46dp"
-            android:layout_height="45dp"
-            android:layout_toRightOf="@id/textView4"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/mode_bg_off"
-            android:drawableTop="@drawable/mode_fan_off"
-            android:gravity="center"
-            android:text="Fan"
-            android:textColor="@color/blue"
-            android:textSize="14sp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="10dp" />
+        <RelativeLayout 
+            android:id="@+id/relativeLayout1_2_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            
+	        <!-- 制冷按钮-->
+	        <TextView
+	            android:id="@+id/textView1"
+	            android:layout_width="46dp"
+	            android:layout_height="45dp"
+	            android:layout_alignParentLeft="true"
+	            android:layout_alignParentTop="true"
+	            android:background="@drawable/mode_bg_on"
+	            android:drawableTop="@drawable/mode_cool_on"
+	            android:gravity="center"
+	            android:text="Cool"
+	            android:textColor="@color/white"
+	            android:textSize="14sp"
+	            android:layout_marginLeft="10dp"
+	            android:layout_marginTop="10dp" />
+	        
+	        <!-- 加热按钮 -->
+	        <TextView
+	            android:id="@+id/textView2"
+	            android:layout_width="46dp"
+	            android:layout_height="45dp"
+	            android:layout_toRightOf="@id/textView1"
+	            android:layout_alignParentTop="true"
+	            android:background="@drawable/mode_bg_off"
+	            android:drawableTop="@drawable/mode_heat_off"
+	            android:gravity="center"
+	            android:text="Heat"
+	            android:textColor="@color/blue"
+	            android:textSize="14sp"
+	            android:layout_marginLeft="4dp"
+	            android:layout_marginTop="10dp" />
+	        
+	        <!-- 自动按钮 -->
+	        <TextView
+	            android:id="@+id/textView3"
+	            android:layout_width="46dp"
+	            android:layout_height="45dp"
+	            android:layout_toRightOf="@id/textView2"
+	            android:layout_alignParentTop="true"
+	            android:background="@drawable/mode_bg_off"
+	            android:drawableTop="@drawable/mode_auto_off"
+	            android:gravity="center"
+	            android:text="Auto"
+	            android:textColor="@color/blue"
+	            android:textSize="14sp"
+	            android:layout_marginLeft="4dp"
+	            android:layout_marginTop="10dp" />
+	        
+	        <!-- 干燥 按钮-->
+	        <TextView
+	            android:id="@+id/textView4"
+	            android:layout_width="46dp"
+	            android:layout_height="45dp"
+	            android:layout_toRightOf="@id/textView3"
+	            android:layout_alignParentTop="true"
+	            android:background="@drawable/mode_bg_off"
+	            android:drawableTop="@drawable/mode_dry_off"
+	            android:gravity="center"
+	            android:text="Dry"
+	            android:textColor="@color/blue"
+	            android:textSize="14sp"
+	            android:layout_marginLeft="4dp"
+	            android:layout_marginTop="10dp" />
+	        
+	        <!-- 送风按钮 -->
+	        <TextView
+	            android:id="@+id/textView5"
+	            android:layout_width="46dp"
+	            android:layout_height="45dp"
+	            android:layout_toRightOf="@id/textView4"
+	            android:layout_alignParentTop="true"
+	            android:background="@drawable/mode_bg_off"
+	            android:drawableTop="@drawable/mode_fan_off"
+	            android:gravity="center"
+	            android:text="Fan"
+	            android:textColor="@color/blue"
+	            android:textSize="14sp"
+	            android:layout_marginLeft="4dp"
+	            android:layout_marginTop="10dp" />
+        </RelativeLayout>
+        <FrameLayout 
+            android:id="@+id/frameLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/relativeLayout1_2_1"
+            android:background="@color/blue"
+            android:visibility="gone"
+            android:layout_margin="5dp">
+	    </FrameLayout>
+	    
+	    <!-- 制冷显示内容 -->
+        <FrameLayout 
+            android:id="@+id/frameLayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/relativeLayout1_2_1"
+            android:layout_margin="5dp">
+		    <RelativeLayout 
+	            android:id="@+id/relativeLayout1_2_2"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:layout_below="@id/relativeLayout1_2_1">
+	           
+                <LinearLayout 
+                    android:id="@+id/relativeLayout1_2_2_1"
+                    android:orientation="horizontal"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent">
+                    <ImageView 
+                        android:id="@+id/imageView2"
+		            	android:layout_width="0dp"
+		            	android:layout_height="fill_parent"
+		            	android:layout_weight="1"
+		            	android:layout_marginLeft="20dp"
+		            	android:layout_marginRight="5dp"
+		            	android:src="@drawable/mid_black_8"/>
+		            <ImageView 
+		                android:id="@+id/imageView3"
+		            	android:layout_width="0dp"
+		            	android:layout_height="fill_parent"
+		            	android:layout_weight="1"
+		            	android:layout_marginRight="15dp"
+		            	android:src="@drawable/mid_black_7"/>
+		            <!-- 温度单位 -->
+		            <RelativeLayout 
+		              
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_marginTop="50dp"
+		                android:layout_marginRight="10dp">
+		                <ImageView 
+			            	android:layout_width="wrap_content"
+			            	android:layout_height="wrap_content"
+			            	android:src="@drawable/temperature_unit_f"/>
+		            </RelativeLayout>	            
+                </LinearLayout>
+                
+                <!-- 进度条 -->
+                <LinearLayout 
+                    android:id="@+id/relativeLayout1_2_2_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@id/relativeLayout1_2_2_1">
+                    <ImageButton 
+                        android:id="@+id/imageButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="temPlus"
+                        android:background="@drawable/slider_button_plus"
+                        />
+                    <LinearLayout
+                        android:id="@+id/linearLayout1"
+                        android:layout_below="@id/imageButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+                        
+                    </LinearLayout>
+                    
+                    <ImageButton 
+                        android:id="@+id/imageButton2"                     
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="temMinus"
+                        android:background="@drawable/slider_button_minus"
+                        />
+                </LinearLayout>   
+	        </RelativeLayout>
+            
+        </FrameLayout>
 
 
     </RelativeLayout>
@@ -160,7 +262,7 @@
         android:layout_toRightOf="@id/relativeLayout1_2"
         android:layout_alignTop="@id/relativeLayout1_2">
         
-        <!-- 风速 -->
+        <!-- 风速设置 -->
         <RelativeLayout
             android:id="@+id/relativeLayout1_3_1" 
             android:layout_width="139dp"
@@ -178,6 +280,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="5dp"
                 android:gravity="center">
+                <!-- 风速设置标题栏 -->
 	            <TextView 
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
@@ -198,6 +301,7 @@
 	                android:layout_height="fill_parent"
 	                android:gravity="center_horizontal"
 	                android:orientation="vertical">
+                    <!-- 高速按钮 -->
 	                <Button 
 	                android:id="@+id/button1"
 	                android:layout_width="30dp"
@@ -205,6 +309,7 @@
 	                android:layout_weight="1"
 	                android:layout_marginTop="4dp"
 	                android:background="@drawable/fan_speed_b1_high_on"/>
+	                <!-- 中速按钮 -->
 		            <Button 
 		                android:id="@+id/button2"
 		                android:layout_width="30dp"
@@ -213,6 +318,7 @@
 		                android:layout_marginTop="3dp"
 		                android:layout_below="@id/button1"
 		                android:background="@drawable/fan_speed_b2_med_off"/>
+		            <!-- 低速按钮 -->
 		            <Button 
 		                android:id="@+id/button3"
 		                android:layout_width="30dp"
@@ -221,6 +327,7 @@
 		                android:layout_marginTop="3dp"
 		                android:layout_below="@id/button2"
 		                android:background="@drawable/fan_speed_b3_low_off"/>
+		            <!-- 自动按钮 -->
 		            <Button 
 		                android:id="@+id/button4"
 		                android:layout_width="30dp"
@@ -233,6 +340,7 @@
 	            </LinearLayout>
 	        </RelativeLayout>
 	        
+	        <!-- 转动的小风扇 -->
 	        <RelativeLayout 
 	            android:id="@+id/relativeLayout1_3_1_3"
 	            android:layout_width="92dp"
@@ -246,7 +354,7 @@
 	                android:id="@+id/imageView1"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:src="@drawable/fan_small_1"/>
+	                android:src="@drawable/fan_small_0"/>
 	        </RelativeLayout>
 	        
         </RelativeLayout>
