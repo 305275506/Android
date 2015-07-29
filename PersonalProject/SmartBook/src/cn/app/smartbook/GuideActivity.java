@@ -12,19 +12,31 @@ import android.view.Menu;
 import android.view.View;
 
 public class GuideActivity extends Activity {
+	//是否第一次登录
+	private boolean isFirstLoign;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_guide);
+		if(isFirstLoign==true) {
+			setContentView(R.layout.activity_login);
+		} else {
+			loign();
+		}
 		
 	}
 	
+	//启动登录界面
+	private void loign() {
+		Intent intent = new Intent();
+		intent.setClass(this, LoginActivity.class);
+		startActivity(intent);
+		
+	}
+
 	public void enter(View view) {
 		System.out.println("点击进入");
-		Intent intent = new Intent();
-		intent.setClass(this, MainActivity.class);
-		startActivity(intent);
+		
 	}
 
 
