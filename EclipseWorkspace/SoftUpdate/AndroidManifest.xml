@@ -19,7 +19,6 @@
         android:theme="@style/AppTheme" >
         <receiver android:name="com.example.softupdate.SoftUpdateReceiver" >
             <intent-filter>
-
                 <!-- 订阅网络状态改变的广播事件 -->
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>

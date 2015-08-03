@@ -133,7 +133,7 @@ public class SoftUpdateReceiver extends BroadcastReceiver {
 			while (eventType!=XmlPullParser.END_DOCUMENT) {
 				switch (eventType) {
 				case XmlPullParser.START_TAG:
-					if(parser.getName().equals("VersionCode")) {
+					if(parser.getName().equals("versionCode")) {
 						try {
 							versionCode = Integer.parseInt(parser.nextText());
 						} catch (NumberFormatException e) {
