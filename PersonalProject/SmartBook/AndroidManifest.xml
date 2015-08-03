@@ -30,6 +30,10 @@
             android:name="cn.app.smartbook.LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name="cn.app.smartbook.RegisterActivity"
+            android:label="@string/title_activity_register" >
+        </activity>
     </application>
 
 </manifest>

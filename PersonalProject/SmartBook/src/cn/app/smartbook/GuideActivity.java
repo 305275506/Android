@@ -42,6 +42,7 @@ public class GuideActivity extends Activity {
 		Intent intent = new Intent();
 		intent.setClass(this, LoginActivity.class);
 		startActivity(intent);
+		finish();
 		
 	}
 

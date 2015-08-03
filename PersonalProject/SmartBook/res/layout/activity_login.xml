@@ -70,12 +70,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="登录"
+            android:onClick="login"
             android:textSize="18sp"/>
         <Button android:id="@+id/registerButton_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="注册"
             android:textSize="18sp"
+            android:onClick="register"
             android:layout_marginLeft="20dp"/>
         "
     </LinearLayout>
