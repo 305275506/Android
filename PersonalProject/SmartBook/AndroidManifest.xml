@@ -7,6 +7,9 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
+    <!-- 设置测试环境和要测试的目标包-->
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="cn.app.smartbook"></instrumentation>
 
     <application
         android:allowBackup="true"
@@ -34,6 +37,8 @@
             android:name="cn.app.smartbook.RegisterActivity"
             android:label="@string/title_activity_register" >
         </activity>
+        <!-- 添加测试类库 -->
+        <uses-library android:name="android.test.runner"/>
     </application>
 
 </manifest>
