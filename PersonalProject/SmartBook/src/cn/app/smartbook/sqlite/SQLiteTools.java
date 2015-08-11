@@ -5,6 +5,7 @@ package cn.app.smartbook.sqlite;
 
 import java.sql.SQLClientInfoException;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 public class SQLiteTools {
@@ -14,8 +15,8 @@ public class SQLiteTools {
 	 * @param name:数据库名字
 	 * @return 返回一个数据库
 	 */
-	public SQLiteDatabase openSQL(String name){
-		SQLiteDatabase sql = new SQLiteCreator(null, name).getWritableDatabase();
+	public SQLiteDatabase openSQL(Context context,String name){
+		SQLiteDatabase sql = new SQLiteCreator(context, name).getWritableDatabase();
 		return sql;
 	}
 	
@@ -27,14 +28,16 @@ public class SQLiteTools {
 	 * @return  返回表名
 	 */
 	public String addTable(SQLiteDatabase sql,String table) {
-		String sqlStr = "create table if not exits"+table+"(_id integer primary key autoincrement)";
+		String sqlStr = "create table if not exists "+table+"(_id integer primary key autoincrement)";
 		sql.execSQL(sqlStr);
 		sql.close();
 		return table;
 	}
 	
-	public String addPara(SQLiteDatabase sql,String table,String para) {
-		String sqlStr = "alter table "+table+"add column"+para;
+	public String addPara(SQLiteDatabase sql,String table,String para,String paraType) {
+		String sqlStr = "alter table "+table+" add column "+para+" "+paraType;
+		sql.execSQL(sqlStr);
+		sql.close();
 		return para;
 	}
 	
